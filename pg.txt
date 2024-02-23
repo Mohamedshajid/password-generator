@@ -1,0 +1,23 @@
+import random
+import string
+
+def generate_password(length):
+    characters = string.ascii_letters + string.digits + string.punctuation
+    password = ''.join(random.choice(characters) for i in range(length))
+    return password
+
+def main():
+    print("Welcome to the Password Generator!")
+    print("----------------------------------")
+    num_passwords = int(input("How many passwords would you like to generate? "))
+    length = int(input("Enter the length of each password: "))
+
+    print("\nGenerating Passwords...")
+    passwords = [generate_password(length) for _ in range(num_passwords)]
+
+    print("\nGenerated Passwords:")
+    for i, password in enumerate(passwords, start=1):
+        print(f"Password {i}: {password}")
+
+if __name__ == "__main__":
+    main()
